@@ -13,6 +13,7 @@ import (
 	"strconv"
 	"strings"
 	"syscall"
+	"time"
 
 	"golang.org/x/crypto/ssh"
 	"golang.org/x/crypto/ssh/agent"
@@ -218,6 +219,7 @@ func (st *SSHTunnel) Run(proto, serverAddress string, ppid int) error {
 					return
 				}
 			}
+			time.Sleep(1 * time.Second)
 		}
 	}(ppid)
 
